@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class Locators extends BaseTest {
+public class LocatorsTests extends BaseTest {
 
     @Test
     public void FindByIdTest()
