@@ -43,4 +43,5 @@ public class WaitsTests extends BaseTest {
 
         Assert.assertEquals(actualResult,searchValue,"Search value is incorrect");
     }
+
 }
