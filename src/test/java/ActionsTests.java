@@ -21,22 +21,16 @@ public class ActionsTests extends BaseTest {
     public void dragAndDrop()
     {
         webDriver.get("http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html");
-        Actions action = new Actions(webDriver);
-        action.dragAndDrop(dragAndDropPage.getCapitalBox(), dragAndDropPage.getCountry()).build().perform();
+       dragAndDropPage
+               .moveOsloToItaly()
+               .moveStockholmToNorway();
     }
 
     @Test
     public void dragAndDrop2()
     {
         webDriver.get("http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html");
-        Actions action = new Actions(webDriver);
-
-        action.clickAndHold(dragAndDropPage.getCapitalBox())
-                .pause(2000)
-                .moveToElement(dragAndDropPage.getCountry())
-                .release()
-                .build()
-                .perform();
+        dragAndDropPage.moveOsloToItalyWithPause();
     }
 
     @Test
