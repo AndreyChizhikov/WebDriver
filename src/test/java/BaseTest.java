@@ -1,3 +1,6 @@
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,10 +18,23 @@ public class BaseTest {
     {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1280,720");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--incognito");
 
         webDriver = new ChromeDriver(options);
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
+    }
+
+    @Attachment(type = "image/png")
+    public byte[] takeScreenshot (WebDriver driver)
+    {
+        byte[] result = null;
+        if(driver!=null)
+        {
+            result =((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+        }
+        return result;
     }
 
     @AfterMethod
